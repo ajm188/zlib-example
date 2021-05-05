@@ -8,6 +8,26 @@ import (
 	"testing"
 )
 
+/*
+Results: last updated 5/4/2021
+
+Running tool: /usr/local/bin/go test -benchmem -run=^$ -coverprofile=[elided...]/vscode-goBFP6uK/go-code-cover -bench . ajm188.scratchpad/zlib-example/benchmarks
+
+goos: darwin
+goarch: amd64
+pkg: ajm188.scratchpad/zlib-example/benchmarks
+cpu: Intel(R) Core(TM) i7-1068NG7 CPU @ 2.30GHz
+BenchmarkNoHeaderCheckUncompressed-8     	 6725820	       174.3 ns/op	     416 B/op	       3 allocs/op
+BenchmarkNoHeaderCheckCompressed-8       	  116223	     10020 ns/op	   41636 B/op	      11 allocs/op
+BenchmarkNoHeaderCheckCompressedHuge-8   	    3232	    341412 ns/op	 1367134 B/op	      20 allocs/op
+BenchmarkHeaderCheckUncompressed-8       	 6971170	       177.3 ns/op	     416 B/op	       3 allocs/op
+BenchmarkHeaderCheckCompressed-8         	  115886	     10485 ns/op	   41348 B/op	      10 allocs/op
+BenchmarkHeaderCheckCompressedHuge-8     	    3813	    301141 ns/op	 1088598 B/op	      19 allocs/op
+PASS
+coverage: 82.8% of statements
+ok  	ajm188.scratchpad/zlib-example/benchmarks	8.238s
+*/
+
 var (
 	gtid           = "MySQL56/14b68925-696a-11ea-aee7-fec597a91f5e:1-308092,320a5e98-6965-11ea-b949-eeafd34ae6e4:1-3,81cbdbf8-6969-11ea-aeb1-a6143b021f67:1-524891956,c9a0f301-6965-11ea-ba9d-02c229065569:1-3,cb698dac-6969-11ea-ac38-16e5d0ac5c3a:1-524441991,e39fca4d-6960-11ea-b4c2-1e895fd49fa0:1-3"
 	compressedGtid = mustcompress(gtid)
